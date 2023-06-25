@@ -11,7 +11,14 @@ import { palette } from "./palette";
 import { typography } from "./typography";
 
 export const ThemeConfig: React.FCWithChildren = ({ children }) => {
-  const themeOptions: ThemeOptions = { palette, typography };
+  const themeOptions: ThemeOptions = {
+    palette: {
+      ...palette.dark,
+      mode: "dark", // set the theme mode to dark
+    },
+
+    typography,
+  };
   const theme = createTheme(themeOptions);
 
   return (

@@ -1,5 +1,3 @@
-import { PaletteOptions } from "@mui/material";
-
 const THEME_BACKGROUND = {
   light: "#f7f7f7",
   dark: "#1A1C1E",
@@ -11,19 +9,24 @@ const COMMON = {
   common: { black: "#000", white: "#fff" },
 };
 
-export const palette: PaletteOptions = {
-  ...COMMON,
-  primary: { main: "#6441a5" },
-  info: { main: "#477998" },
-  error: { main: "#95190C" },
-  success: { main: "#9AE19D" },
-  background: {
-    default: THEME_BACKGROUND.dark,
-    layout: THEME_BACKGROUND.layoutDark,
+export const palette = {
+  // light mode can be added in the feauter
+  light: {},
+
+  dark: {
+    ...COMMON,
+    primary: { main: "#804edc" },
+    info: { main: "#477998" },
+    error: { main: "#95190C" },
+    success: { main: "#9AE19D" },
+    background: {
+      default: THEME_BACKGROUND.dark,
+      layout: THEME_BACKGROUND.layoutDark,
+    },
+    others: {
+      border_color: "rgba(255, 255, 255, 0.12)",
+      activeNavItem: "#3F444E",
+    },
+    action: { hover: "#ffffff33" },
   },
-  others: {
-    border_color: "rgba(255, 255, 255, 0.12)",
-    activeNavItem: "#3F444E",
-  },
-  action: { hover: "#ffffff33" },
 };

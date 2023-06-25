@@ -32,30 +32,20 @@ function responsiveFontSizes({
   };
 }
 
+const FONT_PRIMARY = "Silkscreen";
+
 export const typography: TypographyOptions = {
-  fontFamily: "Roboto, sans-serif",
+  fontFamily: FONT_PRIMARY,
   fontWeightRegular: 400,
   fontWeightMedium: 600,
   fontWeightBold: 700,
+
   subtitle1: {
+    lineHeight: "117%",
     fontWeight: 700,
-    lineHeight: "117%",
-    fontSize: pxToRem(10),
+    textTransform: "uppercase",
     letterSpacing: 0,
-    ...responsiveFontSizes({ sm: 9, md: 9, lg: 10 }),
+    fontSize: pxToRem(20),
+    ...responsiveFontSizes({ sm: 12, md: 18, lg: 20 }),
   },
-  subtitle2: {
-    fontWeight: 400,
-    lineHeight: "117%",
-    fontSize: pxToRem(11),
-    letterSpacing: 1,
-    ...responsiveFontSizes({ sm: 10, md: 10, lg: 11 }),
-  },
-  h3: {
-    fontWeight: 400,
-    lineHeight: "117%",
-    fontSize: pxToRem(10),
-    letterSpacing: 0.5,
-    ...responsiveFontSizes({ sm: 8, md: 8, lg: 10 }),
-  },
-} as const;
+};

@@ -4,7 +4,12 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { StreamingPlatforms } from "../../../shared/enums";
-import { MAX_NAME_LENGTH, MIN_NAME_LENGTH } from "./constans";
+import {
+  MAX_DESCRIPTION_LENGTH,
+  MAX_NAME_LENGTH,
+  MIN_DESCRIPTION_LENGTH,
+  MIN_NAME_LENGTH,
+} from "./constans";
 
 export enum StreamerSubmmionFields {
   NAME = "name",
@@ -34,9 +39,17 @@ const streamerSubmissionSchema = yup.object().shape({
     .mixed<StreamingPlatforms>()
     .oneOf(Object.values(StreamingPlatforms))
     .required(),
+  [StreamerSubmmionFields.DESCRIPTION]: yup
+    .string()
+    .required()
+    .min(MIN_DESCRIPTION_LENGTH)
+    .max(MAX_DESCRIPTION_LENGTH),
 });
 
 export const useStreamerSubmissionForm = () => {
+  // todo: add logic when query will be added
+  const isLoading = false;
+
   const methods = useForm<StreamerSubmission>({
     defaultValues,
     resolver: yupResolver(streamerSubmissionSchema),
@@ -56,6 +69,6 @@ export const useStreamerSubmissionForm = () => {
     methods,
     onSubmit,
     canSubmit,
-    resetForm,
+    isLoading,
   };
 };

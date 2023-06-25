@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Typography } from "@mui/material";
+import Routes from "./Routes";
 
 const App: React.FC = () => {
   return (
     <main>
-      <Typography color="primary">Streamer Spotligh App</Typography>
+      <Routes />
     </main>
   );
 };

@@ -2,8 +2,8 @@ import React from "react";
 
 import { styled } from "@mui/system";
 
-import { StreamerSubmissionForm } from "./views/StremerSubmissionForm";
-import { StreamersList } from "./views/StreamersList";
+import { StreamerSubmissionForm } from "./views/StremerSubmissionForm/StremerSubmissionForm";
+import { StreamersList } from "./views/StreamersList/StreamersList";
 
 import { DUMMY_STREAMERS } from "./constans";
 

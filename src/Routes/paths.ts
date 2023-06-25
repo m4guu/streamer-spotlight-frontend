@@ -1,7 +1,9 @@
 export enum PATHS {
-  default = "/",
-  notFound = "*",
+  DEFAULT = "/",
+  NOT_FOUND = "*",
+  STREAMER = "/streamer",
+}
 
-  // nested paths
+export enum NESTED_PATHS {
   STREAMER = "/streamer/:streamerId",
 }

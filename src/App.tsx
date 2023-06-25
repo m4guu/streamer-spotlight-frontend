@@ -1,7 +1,13 @@
 import React from "react";
 
+import { Typography } from "@mui/material";
+
 const App: React.FC = () => {
-  return <main>Streamer Spotligh App</main>;
+  return (
+    <main>
+      <Typography color="primary">Streamer Spotligh App</Typography>
+    </main>
+  );
 };
 
 export default App;

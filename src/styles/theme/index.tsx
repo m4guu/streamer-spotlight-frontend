@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   createTheme,
   CssBaseline,
@@ -7,6 +6,7 @@ import {
   ThemeOptions,
   ThemeProvider,
 } from "@mui/material";
+
 import { palette } from "./palette";
 import { typography } from "./typography";
 

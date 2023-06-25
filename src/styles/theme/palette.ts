@@ -1,3 +1,5 @@
+import { PaletteOptions } from "@mui/material";
+
 const THEME_BACKGROUND = {
   light: "#f7f7f7",
   dark: "#1A1C1E",
@@ -9,7 +11,7 @@ const COMMON = {
   common: { black: "#000", white: "#fff" },
 };
 
-export const palette = {
+export const palette: PaletteOptions = {
   ...COMMON,
   primary: { main: "#6441a5" },
   info: { main: "#477998" },

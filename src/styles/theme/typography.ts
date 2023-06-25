@@ -1,3 +1,5 @@
+import { TypographyOptions } from "@mui/material/styles/createTypography";
+
 function pxToRem(value: number) {
   return `${value / 10}rem`;
 }
@@ -30,7 +32,7 @@ function responsiveFontSizes({
   };
 }
 
-export const typography = {
+export const typography: TypographyOptions = {
   fontFamily: "Roboto, sans-serif",
   fontWeightRegular: 400,
   fontWeightMedium: 600,

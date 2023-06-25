@@ -6,7 +6,7 @@ import StreamersService, {
 
 import { QueryKeys } from "../../../shared/enums";
 
-export const useAddStreamerMutation = (streamerId: string) => {
+export const useVoteStreamerMutation = (streamerId: string) => {
   const queryClient = useQueryClient();
 
   return useMutation(StreamersService[StreamersMethods.ADD_VOTE], {

@@ -2,16 +2,26 @@ import React from "react";
 
 import { styled } from "@mui/system";
 
+import { useStreamers } from "../../hooks/query-hooks/streamer/useStreamers";
+
 import { StreamerSubmissionForm } from "./views/StremerSubmissionForm/StremerSubmissionForm";
 import { StreamersList } from "./views/StreamersList/StreamersList";
-
-import { DUMMY_STREAMERS } from "./constans";
+import { StatusBar } from "../../feauters/StatusBar/StatusBar";
 
 const Home: React.FC = () => {
+  const { status, error, data: streamers } = useStreamers();
+
   return (
     <HomeContainer>
       <StreamerSubmissionForm />
-      <StreamersList streamers={DUMMY_STREAMERS} />
+
+      {streamers && <StreamersList streamers={streamers} />}
+
+      <StatusBar
+        status={status}
+        error={error}
+        noItems={streamers?.length === 0}
+      />
     </HomeContainer>
   );
 };

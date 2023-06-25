@@ -9,13 +9,13 @@ export enum StreamersMethods {
 }
 
 const StreamersService = {
-  [StreamersMethods.GET]: (pageParam: number) =>
-    HttpService.get<Streamer[]>(`${ENDPOINTS.STREAMERS}?page=${pageParam}`),
+  [StreamersMethods.GET]: () =>
+    HttpService.get<Streamer[]>(ENDPOINTS.STREAMERS),
 
   [StreamersMethods.GET_ONE]: (streamerId: string) =>
     HttpService.get<Streamer>(`${ENDPOINTS.STREAMERS}/${streamerId}`),
 
-  [StreamersMethods.ADD]: (streamer: Streamer) =>
+  [StreamersMethods.ADD]: (streamer: Omit<Streamer, "id">) =>
     HttpService.post<void>(ENDPOINTS.STREAMERS, streamer),
 
   [StreamersMethods.ADD_VOTE]: (vote: Vote) =>

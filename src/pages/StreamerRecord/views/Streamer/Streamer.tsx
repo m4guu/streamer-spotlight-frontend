@@ -1,42 +1,35 @@
 import React from "react";
 
-import { Box, Avatar, Typography } from "@mui/material";
+import { Box, Avatar } from "@mui/material";
 import { styled } from "@mui/system";
+
+import { Dislike, Like } from "./views/Streamer.actions";
+import { useStreamer } from "../../../../hooks/query-hooks/streamer/useStreamer";
+import { StreamerBasicInfo } from "./views/StreamerBasicInfo/StreamerBasicInfo";
+import { StatusBar } from "../../../../feauters/StatusBar/StatusBar";
 
 // ! static profile image
 import staticProfileImage from "../../../../assets/static/images/dummy-profile-image.png";
-
-import { DUMMY_STREAMER } from "./constans";
-import { StreamerFieldInfo } from "../../../../components";
-import { Dislike, Like } from "./views/Streamer.actions";
 
 type StreamerProps = {
   streamerId: string;
 };
 export const Streamer: React.FC<StreamerProps> = ({ streamerId }) => {
-  // todo: add functionality when services will be added -> get streamer by Id
+  const { status, error, data: streamer } = useStreamer(streamerId);
 
   return (
     <StreamerContainer>
       <StreamerAvatar src={staticProfileImage} />
-
-      <Box>
-        <StreamerFieldInfo title="name" value={DUMMY_STREAMER.name} />
-        <StreamerFieldInfo title="platform" value={DUMMY_STREAMER.platform} />
-        <StreamerFieldInfo
-          title="likes"
-          value={DUMMY_STREAMER.score.likes.length}
-        />
-        <StreamerFieldInfo
-          title="dislikes"
-          value={DUMMY_STREAMER.score.dislikes.length}
-        />
-      </Box>
-
-      <StreamerActions>
-        <Like />
-        <Dislike />
-      </StreamerActions>
+      {streamer && (
+        <>
+          <StreamerBasicInfo streamer={streamer} />
+          <StreamerActions>
+            <Like streamerId={streamer.id} />
+            <Dislike streamerId={streamer.id} />
+          </StreamerActions>
+        </>
+      )}
+      <StatusBar status={status} error={error} noItems={!streamer} />
     </StreamerContainer>
   );
 };

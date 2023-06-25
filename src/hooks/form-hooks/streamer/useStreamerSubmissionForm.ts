@@ -10,6 +10,8 @@ import {
   MIN_DESCRIPTION_LENGTH,
   MIN_NAME_LENGTH,
 } from "./constans";
+import { useAddStreamerMutation } from "../../query-hooks/streamer/useAddStreamerMutation";
+import { Streamer } from "../../../shared/interfaces";
 
 export enum StreamerSubmmionFields {
   NAME = "name",
@@ -47,8 +49,12 @@ const streamerSubmissionSchema = yup.object().shape({
 });
 
 export const useStreamerSubmissionForm = () => {
-  // todo: add logic when query will be added
-  const isLoading = false;
+  const {
+    isLoading,
+    status: addStreamerStatus,
+    error: addStreamerError,
+    mutateAsync: addStreamer,
+  } = useAddStreamerMutation();
 
   const methods = useForm<StreamerSubmission>({
     defaultValues,
@@ -61,8 +67,12 @@ export const useStreamerSubmissionForm = () => {
   const canSubmit = name && platform && description;
 
   const onSubmit = useCallback(async (formValues: StreamerSubmission) => {
-    // todo: add logic when query will be added
-    console.log(formValues);
+    const streamer: Omit<Streamer, "id"> = {
+      ...formValues,
+      score: { likes: [], dislikes: [] },
+    };
+
+    addStreamer(streamer).then(resetForm);
   }, []);
 
   return {

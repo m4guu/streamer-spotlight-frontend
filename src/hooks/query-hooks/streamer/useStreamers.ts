@@ -5,9 +5,10 @@ import StreamersService, {
 } from "../../../services/Streamers";
 
 import { QueryKeys } from "../../../shared/enums";
+import { CustomError, Streamer } from "../../../shared/interfaces";
 
 export const useStreamers = () => {
-  return useQuery(
+  return useQuery<Streamer[], CustomError>(
     [QueryKeys.STREAMERS],
     StreamersService[StreamersMethods.GET]
   );

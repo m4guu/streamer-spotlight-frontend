@@ -4,9 +4,9 @@ import { styled } from "@mui/system";
 
 import { useStreamers } from "../../hooks/query-hooks/streamer/useStreamers";
 
+import { StatusBar } from "../../feauters/StatusBar/StatusBar";
 import { StreamerSubmissionForm } from "./views/StremerSubmissionForm/StremerSubmissionForm";
 import { StreamersList } from "./views/StreamersList/StreamersList";
-import { StatusBar } from "../../feauters/StatusBar/StatusBar";
 
 const Home: React.FC = () => {
   const { status, error, data: streamers } = useStreamers();

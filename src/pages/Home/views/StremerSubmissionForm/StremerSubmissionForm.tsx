@@ -8,11 +8,19 @@ import { useStreamerSubmissionForm } from "../../../../hooks/form-hooks/streamer
 
 import { Description, Name, Platform } from "./views/StreamerSubmission.form";
 import { SubmitButton } from "../../../../components";
+import { StatusBar } from "../../../../feauters/StatusBar/StatusBar";
 
 export const StreamerSubmissionForm: React.FC = () => {
-  const { methods, onSubmit, canSubmit, isLoading } =
-    useStreamerSubmissionForm();
+  const {
+    methods,
+    onSubmit,
+    canSubmit,
+    isAddingStreamer,
+    addStreamerError,
+    addStreamerStatus,
+  } = useStreamerSubmissionForm();
   const { handleSubmit } = methods;
+  console.log(addStreamerError);
 
   return (
     <FormProvider {...methods}>
@@ -26,11 +34,12 @@ export const StreamerSubmissionForm: React.FC = () => {
         <SubmitButton
           label="add streamer"
           variant="contained"
-          loading={isLoading}
+          loading={isAddingStreamer}
           disabled={!canSubmit}
           onClick={handleSubmit((data) => onSubmit(data))}
         />
       </FormWrapper>
+      <StatusBar error={addStreamerError} />
     </FormProvider>
   );
 };

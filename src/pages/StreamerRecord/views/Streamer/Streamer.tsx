@@ -5,9 +5,9 @@ import { styled } from "@mui/system";
 
 import { useStreamer } from "../../../../hooks/query-hooks/streamer/useStreamer";
 
+import { StatusBar } from "../../../../feauters/StatusBar/StatusBar";
 import { Dislike, Like } from "./views/Streamer.actions";
 import { StreamerBasicInfo } from "./views/StreamerBasicInfo/StreamerBasicInfo";
-import { StatusBar } from "../../../../feauters/StatusBar/StatusBar";
 
 // ! static profile image
 import staticProfileImage from "../../../../assets/static/images/dummy-profile-image.png";
@@ -20,9 +20,9 @@ export const Streamer: React.FC<StreamerProps> = ({ streamerId }) => {
 
   return (
     <StreamerContainer>
-      <StreamerAvatar src={staticProfileImage} />
       {streamer && (
         <>
+          <StreamerAvatar src={staticProfileImage} />
           <StreamerBasicInfo streamer={streamer} />
           <StreamerActions>
             <Like streamerId={streamer.id} />
@@ -30,7 +30,7 @@ export const Streamer: React.FC<StreamerProps> = ({ streamerId }) => {
           </StreamerActions>
         </>
       )}
-      <StatusBar status={status} error={error} noItems={!streamer} />
+      <StatusBar status={status} error={error} />
     </StreamerContainer>
   );
 };

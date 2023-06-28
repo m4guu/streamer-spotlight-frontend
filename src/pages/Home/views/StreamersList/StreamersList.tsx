@@ -6,15 +6,18 @@ import { styled } from "@mui/system";
 import { StreamerItem } from "../../../../components";
 
 import { Streamer } from "../../../../shared/interfaces";
+import { sortStreamersByLikes } from "../../../../utils";
 
 type StreamersListProps = {
   streamers: Streamer[];
 };
 
 export const StreamersList: React.FC<StreamersListProps> = ({ streamers }) => {
+  const sortedStreamers = sortStreamersByLikes(streamers);
+
   return (
     <StreamerList>
-      {streamers.map((streamer, i) => {
+      {sortedStreamers.map((streamer, i) => {
         return (
           <StreamerItem key={streamer.id} streamer={streamer} itemIndex={i} />
         );

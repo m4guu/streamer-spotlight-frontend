@@ -50,7 +50,7 @@ const streamerSubmissionSchema = yup.object().shape({
 
 export const useStreamerSubmissionForm = () => {
   const {
-    isLoading,
+    isLoading: isAddingStreamer,
     status: addStreamerStatus,
     error: addStreamerError,
     mutateAsync: addStreamer,
@@ -79,6 +79,8 @@ export const useStreamerSubmissionForm = () => {
     methods,
     onSubmit,
     canSubmit,
-    isLoading,
+    isAddingStreamer,
+    addStreamerStatus,
+    addStreamerError,
   };
 };

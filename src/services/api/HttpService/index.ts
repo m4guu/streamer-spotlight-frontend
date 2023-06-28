@@ -1,10 +1,16 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 import { BASE_API_URL } from "../../../config/env.config";
+import { CustomError } from "../../../shared/interfaces";
+import { undefinedError } from "./constans";
 
 const pluckData = <T>(wrapper: { data: T }) => wrapper.data;
-const throwError = (e: Error) => {
-  throw e;
+const throwError = (e: AxiosError<CustomError, any>) => {
+  const customError: CustomError = e.response
+    ? e.response.data
+    : undefinedError;
+
+  throw customError;
 };
 const axiosInstance = axios.create({
   baseURL: BASE_API_URL,

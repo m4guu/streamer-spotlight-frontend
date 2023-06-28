@@ -17,6 +17,7 @@ const StreamerItem: React.FC<StreamerItemProps> = ({ streamer, itemIndex }) => {
     <ListItem disablePadding>
       <ListItemLink to={`${PATHS.STREAMER}/${streamer.id}`}>
         <Name>
+          {/* add cup emoij for most liked streamer  */}
           {itemIndex === 0 && <EmojiEventsIcon color="warning" />}
           {streamer.name}
         </Name>

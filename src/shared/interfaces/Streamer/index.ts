@@ -1,14 +1,12 @@
 import { StreamingPlatforms } from "../../enums";
+import Score from "../Score";
 
 interface Streamer {
   id: string;
   name: string;
   platform: StreamingPlatforms;
   description: string;
-  score: {
-    likes: { id: string; userId: string }[];
-    dislikes: { id: string; userId: string }[];
-  };
+  score: Score;
 }
 
 export default Streamer;

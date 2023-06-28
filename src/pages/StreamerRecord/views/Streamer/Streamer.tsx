@@ -3,8 +3,9 @@ import React from "react";
 import { Box, Avatar } from "@mui/material";
 import { styled } from "@mui/system";
 
-import { Dislike, Like } from "./views/Streamer.actions";
 import { useStreamer } from "../../../../hooks/query-hooks/streamer/useStreamer";
+
+import { Dislike, Like } from "./views/Streamer.actions";
 import { StreamerBasicInfo } from "./views/StreamerBasicInfo/StreamerBasicInfo";
 import { StatusBar } from "../../../../feauters/StatusBar/StatusBar";
 

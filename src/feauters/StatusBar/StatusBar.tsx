@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Box, Typography, CircularProgress } from "@mui/material";
-import { styled } from "@mui/system";
 
 import { Status } from "../../shared/enums";
 
@@ -16,16 +15,14 @@ export const StatusBar: React.FC<StatusBarProps> = ({
   noItems,
 }) => {
   return (
-    <Container>
+    <Box>
       {status === Status.LOADING && <CircularProgress />}
       {status === Status.ERROR && (
         <Typography color="error">
           {error.message || "Error occured. Please try later."}
         </Typography>
       )}
-      {noItems && <Typography color="info">no streamers added yet.</Typography>}
-    </Container>
+      {noItems && <Typography color="info">No fields added yet.</Typography>}
+    </Box>
   );
 };
-
-const Container = styled(Box)({});

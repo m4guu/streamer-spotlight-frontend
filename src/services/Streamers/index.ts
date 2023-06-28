@@ -19,7 +19,7 @@ const StreamersService = {
     HttpService.post<void>(ENDPOINTS.STREAMERS, streamer),
 
   [StreamersMethods.ADD_VOTE]: (vote: Vote) =>
-    HttpService.post<void>(
+    HttpService.put<void>(
       `${ENDPOINTS.STREAMERS}/${vote.streamerId}/vote`,
       vote
     ),

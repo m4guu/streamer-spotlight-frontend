@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 
-import { BASE_API_URL } from "../../../config/env.config";
+import { BASE_API_URL } from "../../../config/env/env.config";
 import { CustomError } from "../../../shared/interfaces";
 import { undefinedError } from "./constans";
 

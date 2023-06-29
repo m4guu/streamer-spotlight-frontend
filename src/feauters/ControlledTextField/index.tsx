@@ -20,6 +20,8 @@ const ControlledTextField = <T extends FieldValues>({
       name={fieldName}
       control={control}
       render={({ field, fieldState }) => {
+        console.log(fieldName, field.value);
+
         return (
           <TextField
             {...field}

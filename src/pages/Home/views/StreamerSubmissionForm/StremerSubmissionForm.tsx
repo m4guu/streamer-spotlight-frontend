@@ -11,14 +11,8 @@ import { SubmitButton } from "../../../../components";
 import { StatusBar } from "../../../../feauters/StatusBar/StatusBar";
 
 export const StreamerSubmissionForm: React.FC = () => {
-  const {
-    methods,
-    onSubmit,
-    canSubmit,
-    isAddingStreamer,
-    addStreamerError,
-    addStreamerStatus,
-  } = useStreamerSubmissionForm();
+  const { methods, onSubmit, canSubmit, isAddingStreamer, addStreamerError } =
+    useStreamerSubmissionForm();
   const { handleSubmit } = methods;
   console.log(addStreamerError);
 

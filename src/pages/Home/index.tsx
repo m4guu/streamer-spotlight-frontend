@@ -5,7 +5,7 @@ import { styled } from "@mui/system";
 import { useStreamers } from "../../hooks/query-hooks/streamer/useStreamers";
 
 import { StatusBar } from "../../feauters/StatusBar/StatusBar";
-import { StreamerSubmissionForm } from "./views/StremerSubmissionForm/StremerSubmissionForm";
+import { StreamerSubmissionForm } from "./views/StreamerSubmissionForm/StremerSubmissionForm";
 import { StreamersList } from "./views/StreamersList/StreamersList";
 
 const Home: React.FC = () => {

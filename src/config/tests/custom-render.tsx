@@ -1,7 +1,8 @@
 import React, { ReactElement } from "react";
-import { RenderOptions, render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
+import { RenderOptions, render } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import { ThemeConfig } from "../../styles/theme";
 
 const ProvidersWrapper: React.FCWithChildren = ({ children }) => {

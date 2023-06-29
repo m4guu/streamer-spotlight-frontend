@@ -7,6 +7,7 @@ import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 
 import { Streamer } from "../../shared/interfaces";
 import { PATHS } from "../../Routes/paths";
+import { TestId } from "../../shared/enums";
 
 type StreamerItemProps = {
   streamer: Streamer;
@@ -18,7 +19,12 @@ const StreamerItem: React.FC<StreamerItemProps> = ({ streamer, itemIndex }) => {
       <ListItemLink to={`${PATHS.STREAMER}/${streamer.id}`}>
         <Name>
           {/* add cup emoij for most liked streamer  */}
-          {itemIndex === 0 && <EmojiEventsIcon color="warning" />}
+          {itemIndex === 0 && (
+            <EmojiEventsIcon
+              data-testid={TestId.WINNER_CUP_ICON}
+              color="warning"
+            />
+          )}
           {streamer.name}
         </Name>
         <ScoreBox>

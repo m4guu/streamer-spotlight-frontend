@@ -14,7 +14,6 @@ export const StreamerSubmissionForm: React.FC = () => {
   const { methods, onSubmit, canSubmit, isAddingStreamer, addStreamerError } =
     useStreamerSubmissionForm();
   const { handleSubmit } = methods;
-  console.log(addStreamerError);
 
   return (
     <FormProvider {...methods}>
